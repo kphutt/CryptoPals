@@ -1,14 +1,15 @@
 print("Set 1 Challenge 2 - Fixed XOR\n")
 
 
-def xor_strings(s1, s2):
-    bytes1 = bytes.fromhex(s1)
-    bytes2 = bytes.fromhex(s2)
-
-    result = bytes.hex(bytes(a ^ b for (a, b) in zip(bytes1, bytes2)))
-
-    print("S1 XOR S2 = " + result)
-    return result
+def bitwise_xor(s1, s2):
+    return bytes(a ^ b for (a, b) in zip(s1, s2))
 
 
-xor_strings("1c0111001f010100061a024b53535009181c", "686974207468652062756c6c277320657965")
+from binascii import unhexlify
+
+S1 = unhexlify('1c0111001f010100061a024b53535009181c')
+S2 = unhexlify('686974207468652062756c6c277320657965')
+
+expected = unhexlify('746865206b696420646f6e277420706c6179')
+
+print(bitwise_xor(S1, S2) == expected)
