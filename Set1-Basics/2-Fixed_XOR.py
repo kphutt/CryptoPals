@@ -12,4 +12,5 @@ S2 = unhexlify('686974207468652062756c6c277320657965')
 
 expected = unhexlify('746865206b696420646f6e277420706c6179')
 
-print(bitwise_xor(S1, S2) == expected)
+print(expected)
+assert(bitwise_xor(S1, S2) == expected)
